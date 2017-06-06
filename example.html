@@ -1,0 +1,36 @@
+<div id="example"></div>
+<button id="show_pwd" style="display: none;" onclick="showPassword()">Show password</button>
+<script src="./dist/emoji-auth.js"></script>
+<script>
+var elem = document.getElementById('example');
+var button = document.getElementById('show_pwd');
+
+
+// Init new set with limit
+var set = new EmojiAuth(9);
+
+var currentSet = set.getCurrentSet();
+for (var i = 0; i < currentSet.length; i++) {
+    var e = document.createElement('div');
+    e.innerHTML = currentSet[i].img;
+    e.setAttribute('data-code', currentSet[i].code);
+    e.onclick = function() {
+        set.selectCode(this.getAttribute('data-code'));
+        button.style.display = '';
+
+        this.remove();
+    };
+
+    elem.appendChild(e);
+}
+
+// Export current set, so it can be saved in your db and initialized later
+// var exportedSet = set.getCurrentSet(true);
+// var set = new EmojiAuth(exportedSet)
+
+
+// Get hash for selected set (pass true as 1st argument to clear set or call clearSet afterwards instead)
+function showPassword() {
+    alert('Your password: ' + set.getHash());
+}
+</script>
