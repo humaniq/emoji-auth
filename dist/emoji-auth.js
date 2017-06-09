@@ -25472,13 +25472,17 @@ module.exports = function () {
                 });
             }
         } else if (Number.isInteger(options)) {
+            var selected_codes = [];
+
             while (this.current_set.length < options) {
-                var idx = Math.floor(Math.random() * (emoji_list.length + 1));
-                if (this.current_set.indexOf(emoji_list[idx]) < 0) {
+                var idx = Math.floor(Math.random() * emoji_list.length);
+
+                if (selected_codes.indexOf(emoji_list[idx]) < 0) {
                     this.current_set.push({
                         code: emoji_list[idx],
                         img: emojione.shortnameToImage(emoji_list[idx])
                     });
+                    selected_codes.push(emoji_list[idx]);
                 }
             }
         }
