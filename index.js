@@ -13,13 +13,13 @@ module.exports = class {
 
         if (Array.isArray(options)) {
             for (var i = 0; i < options.length; i++) {
-                if (emoji_list.indexOf(options[i]) < 0) {
-                    throw new Error(options[i] + ' is not available')
+                if (emoji_list.indexOf(options[i].code) < 0) {
+                    throw new Error(options[i].code + ' is not available')
                 }
 
                 this.current_set.push({
-                    code: options[i],
-                    img: emojione.shortnameToImage(options[i]),
+                    code: options[i].code,
+                    img: emojione.shortnameToImage(options[i].code),
                 });
             }
         } else if (Number.isInteger(options)) {
@@ -38,7 +38,7 @@ module.exports = class {
     selectCode(code) {
         for (var i = 0; i < this.current_set.length; i++) {
             if (code == this.current_set[i].code) {
-                this.selected_set.push(code)
+                this.selected_set.push(this.current_set[i]);
 
                 return true;
             }
@@ -48,7 +48,15 @@ module.exports = class {
     }
 
     isSelected(code) {
-        return this.selected_set.indexOf(code) != -1
+        let is_selected = false;
+        for (var i = 0; i < this.selected_set.length; i++) {
+            if (code == this.selected_set[i].code) {
+                is_selected = true;
+                break;
+            }
+        }
+
+        return is_selected;
     }
 
     getCurrentSet(codes_only) {
@@ -56,6 +64,16 @@ module.exports = class {
 
         for (var i = 0; i < this.current_set.length; i++) {
             output.push(codes_only? this.current_set[i].code : this.current_set[i]);
+        }
+
+        return output;
+    }
+
+    getSelectedSet() {
+        var output = [];
+
+        for (var i = 0; i < this.selected_set.length; i++) {
+            output.push(this.selected_set[i]);
         }
 
         return output;
