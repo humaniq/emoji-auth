@@ -61,7 +61,7 @@ describe('Check lib stability', function(){
     });
 
     it('Test #7 Get img tag ', function(){
-        let good_code = ':woman_teacher_tone1:',
+        let good_code = ':woman_teacher:',
             bad_code = 'string';
 
         assert.equal('string', typeof Emoji.getImageTag(good_code), 'The result is not equal to json');
