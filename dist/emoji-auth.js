@@ -22216,21 +22216,14 @@ utils.intFromLE = intFromLE;
 module.exports = {
 	"_args": [
 		[
-			{
-				"raw": "elliptic@^6.0.0",
-				"scope": null,
-				"escapedName": "elliptic",
-				"name": "elliptic",
-				"rawSpec": "^6.0.0",
-				"spec": ">=6.0.0 <7.0.0",
-				"type": "range"
-			},
+			"elliptic@^6.0.0",
 			"/var/www/emoji-auth/node_modules/browserify-sign"
 		]
 	],
 	"_from": "elliptic@>=6.0.0 <7.0.0",
 	"_id": "elliptic@6.4.0",
 	"_inCache": true,
+	"_installable": true,
 	"_location": "/elliptic",
 	"_nodeVersion": "7.0.0",
 	"_npmOperationalInternal": {
@@ -22238,17 +22231,16 @@ module.exports = {
 		"tmp": "tmp/elliptic-6.4.0.tgz_1487798866428_0.30510620190761983"
 	},
 	"_npmUser": {
-		"name": "indutny",
-		"email": "fedor@indutny.com"
+		"email": "fedor@indutny.com",
+		"name": "indutny"
 	},
 	"_npmVersion": "3.10.8",
 	"_phantomChildren": {},
 	"_requested": {
-		"raw": "elliptic@^6.0.0",
-		"scope": null,
-		"escapedName": "elliptic",
 		"name": "elliptic",
+		"raw": "elliptic@^6.0.0",
 		"rawSpec": "^6.0.0",
+		"scope": null,
 		"spec": ">=6.0.0 <7.0.0",
 		"type": "range"
 	},
@@ -22262,8 +22254,8 @@ module.exports = {
 	"_spec": "elliptic@^6.0.0",
 	"_where": "/var/www/emoji-auth/node_modules/browserify-sign",
 	"author": {
-		"name": "Fedor Indutny",
-		"email": "fedor@indutny.com"
+		"email": "fedor@indutny.com",
+		"name": "Fedor Indutny"
 	},
 	"bugs": {
 		"url": "https://github.com/indutny/elliptic/issues"
@@ -22305,10 +22297,10 @@ module.exports = {
 	"gitHead": "6b0d2b76caae91471649c8e21f0b1d3ba0f96090",
 	"homepage": "https://github.com/indutny/elliptic",
 	"keywords": [
+		"Cryptography",
 		"EC",
 		"Elliptic",
-		"curve",
-		"Cryptography"
+		"curve"
 	],
 	"license": "MIT",
 	"main": "lib/elliptic.js",

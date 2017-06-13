@@ -1,4 +1,5 @@
-var emoji_list = require('./emoji-list.json')
+'use strict';
+var emoji_list = require('./emoji-list.json');
 var emojione = require('emojione');
 var sjcl = require('sjcl');
 
