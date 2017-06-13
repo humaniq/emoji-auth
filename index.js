@@ -100,7 +100,7 @@ module.exports = class {
             }
         }
 
-        var code = this.selected_set.join('') + unselected.join('');
+        var code = this.selected_set.join('') + unselected.sort().join('');
         code = sjcl.hash.sha256.hash(code);
         code = sjcl.codec.hex.fromBits(code);
 
