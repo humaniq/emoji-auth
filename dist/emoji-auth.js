@@ -25462,13 +25462,13 @@ module.exports = function () {
 
         if (Array.isArray(options)) {
             for (var i = 0; i < options.length; i++) {
-                if (emoji_list.indexOf(options[i].code) < 0) {
-                    throw new Error(options[i].code + ' is not available');
+                if (emoji_list.indexOf(options[i]) < 0) {
+                    throw new Error(options[i] + ' is not available');
                 }
 
                 this.current_set.push({
-                    code: options[i].code,
-                    img: emojione.shortnameToImage(options[i].code)
+                    code: options[i],
+                    img: emojione.shortnameToImage(options[i])
                 });
             }
         } else if (Number.isInteger(options)) {
@@ -25564,6 +25564,20 @@ module.exports = function () {
             }
 
             return code;
+        }
+    }], [{
+        key: 'getEmojiList',
+        value: function getEmojiList() {
+            return emoji_list;
+        }
+    }, {
+        key: 'getImageTag',
+        value: function getImageTag(code) {
+            if (emoji_list.indexOf(code) < 0) {
+                return false;
+            }
+
+            return emojione.shortnameToImage(code);
         }
     }]);
 

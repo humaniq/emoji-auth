@@ -13,13 +13,13 @@ module.exports = class {
 
         if (Array.isArray(options)) {
             for (var i = 0; i < options.length; i++) {
-                if (emoji_list.indexOf(options[i].code) < 0) {
-                    throw new Error(options[i].code + ' is not available')
+                if (emoji_list.indexOf(options[i]) < 0) {
+                    throw new Error(options[i] + ' is not available')
                 }
 
                 this.current_set.push({
-                    code: options[i].code,
-                    img: emojione.shortnameToImage(options[i].code),
+                    code: options[i],
+                    img: emojione.shortnameToImage(options[i]),
                 });
             }
         } else if (Number.isInteger(options)) {
@@ -32,7 +32,7 @@ module.exports = class {
                     this.current_set.push({
                         code: emoji_list[idx],
                         img: emojione.shortnameToImage(emoji_list[idx]),
-                    })
+                    });
                     selected_codes.push(emoji_list[idx]);
                 }
             }
@@ -108,5 +108,17 @@ module.exports = class {
         }
 
         return code;
+    }
+
+    static getEmojiList() {
+        return emoji_list;
+    }
+
+    static getImageTag(code){
+        if (emoji_list.indexOf(code) < 0){
+            return false;
+        }
+
+        return emojione.shortnameToImage(code)
     }
 }
