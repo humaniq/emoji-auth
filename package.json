@@ -1,6 +1,6 @@
 {
   "name": "emoji-auth",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -19,7 +19,7 @@
   "author": "Atticlab",
   "license": "ISC",
   "dependencies": {
-    "emojione": "^3.0.3",
+    "emojione": "3.0.3",
     "sjcl": "^1.0.6"
   },
   "devDependencies": {
